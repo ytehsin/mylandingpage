@@ -231,3 +231,9 @@ h1, h2, h3 { margin: 0; font-weight: 500; letter-spacing: -0.035em; line-height:
 @media (max-width: 1040px) { .domain-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 760px) { .compare, .split { grid-template-columns: 1fr; } }
 @media (max-width: 640px) { .domain-grid { grid-template-columns: 1fr; } .domain { min-height: 0; } .flow li { font-size: 19px; } }
+
+/* Confidentiality */
+.promise { background: var(--paper); padding: 36px; display: flex; flex-direction: column; gap: 14px; }
+.promise .num { font-family: var(--mono); font-size: 13px; color: var(--accent-text); }
+.promise h3 { font-size: 26px; letter-spacing: -0.025em; }
+.promise p { color: var(--ink-soft); font-size: 16px; }
