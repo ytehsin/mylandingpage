@@ -249,3 +249,4 @@ h1, h2, h3 { margin: 0; font-weight: 500; letter-spacing: -0.035em; line-height:
 
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
 @media (max-width: 760px) { .grid-2 { grid-template-columns: 1fr; } }
+.tools-grid { gap: 24px; }
