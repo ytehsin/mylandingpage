@@ -200,3 +200,34 @@ h1, h2, h3 { margin: 0; font-weight: 500; letter-spacing: -0.035em; line-height:
   .cta { padding: 88px 0; }
   .brand .deva { display: none; }
 }
+
+/* AI-in-the-loop section */
+.accent { color: var(--accent); }
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 64px; }
+.compare-col { border: 1px solid var(--line); padding: 36px; display: flex; flex-direction: column; gap: 24px; }
+.compare-col .label { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.compare-col p { color: var(--ink-soft); font-size: 16px; }
+.compare-col--mine { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.compare-col--mine .label { color: var(--accent); }
+.compare-col--mine p { color: #D0D0D0; }
+.flow { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; counter-reset: step; }
+.flow li { counter-increment: step; font-size: 22px; font-weight: 500; letter-spacing: -0.02em; display: flex; gap: 16px; align-items: baseline; }
+.flow li::before { content: "0" counter(step); font-family: var(--mono); font-size: 12px; font-weight: 400; color: var(--muted); letter-spacing: .04em; }
+.compare-col--mine .flow li::before { color: var(--accent); }
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.split > div { border-top: 2px solid var(--ink); padding-top: 24px; }
+.split h3 { font-size: 26px; margin-bottom: 16px; }
+.split ul { margin: 0; padding: 0; list-style: none; }
+.split li { padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 17px; color: var(--ink-soft); }
+
+/* Domain cards */
+.domain-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line-dark); border-left: 1px solid var(--line-dark); }
+.domain { border-right: 1px solid var(--line-dark); border-bottom: 1px solid var(--line-dark); padding: 32px; display: flex; flex-direction: column; gap: 12px; min-height: 200px; position: relative; transition: background .15s; }
+.domain h3 { font-size: 24px; letter-spacing: -0.025em; }
+.domain p { color: #BDBDBD; font-size: 15.5px; max-width: 300px; }
+.domain .arrow { position: absolute; top: 30px; right: 30px; color: var(--accent); font-size: 20px; }
+.domain:hover { background: var(--ink-soft); }
+
+@media (max-width: 1040px) { .domain-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 760px) { .compare, .split { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .domain-grid { grid-template-columns: 1fr; } .domain { min-height: 0; } .flow li { font-size: 19px; } }
