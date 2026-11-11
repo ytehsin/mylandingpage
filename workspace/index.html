@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Workspace — Yasir Tehsin</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/workspace/workspace.css">
+</head>
+<body class="ws">
+
+<!-- Signed-out screen -->
+<section id="gate" class="gate" hidden>
+  <div class="gate-card">
+    <p class="eyebrow">Private workspace</p>
+    <h1>Yasir Tehsin</h1>
+    <p class="muted">Clients, projects, invoices and documents. Owner access only.</p>
+    <button class="btn btn--primary" id="signin">Sign in with Google</button>
+    <p class="err" id="gate-err" role="alert"></p>
+  </div>
+</section>
+
+<!-- App -->
+<div id="app" class="app" hidden>
+  <aside class="side">
+    <a class="brand" href="/">Yasir Tehsin</a>
+    <nav class="tabs" aria-label="Workspace">
+      <button data-tab="dashboard" class="active">Dashboard</button>
+      <button data-tab="clients">Clients</button>
+      <button data-tab="projects">Projects</button>
+      <button data-tab="invoices">Invoices</button>
+      <button data-tab="documents">Documents</button>
+      <button data-tab="settings">Business details</button>
+    </nav>
+    <div class="who"><span id="who"></span><button class="link" id="signout">Sign out</button></div>
+  </aside>
+  <main class="main" id="main" tabindex="-1"></main>
+</div>
+
+<div id="loading" class="loading">Loading…</div>
+
+<!-- Modal -->
+<dialog id="modal" class="modal">
+  <form method="dialog" id="modal-form" novalidate>
+    <header><h2 id="modal-title"></h2><button type="button" class="link" data-close aria-label="Close">✕</button></header>
+    <div id="modal-body" class="modal-body"></div>
+    <footer><span class="err" id="modal-err" role="alert"></span><button type="button" class="btn btn--ghost" data-close>Cancel</button><button type="submit" class="btn btn--primary" id="modal-save">Save</button></footer>
+  </form>
+</dialog>
+
+<!-- Print area for invoices -->
+<div id="print-area" class="print-area" aria-hidden="true"></div>
+
+<script type="module" src="/workspace/app.js"></script>
+</body>
+</html>
