@@ -161,7 +161,8 @@ function readForm(fields) {
 }
 
 let modalSubmit = null;
-function openModal(title, bodyHtml, onSubmit, saveLabel = "Save") {
+function openModal(title, bodyHtml, onSubmit, saveLabel = "Save", wide = false) {
+  $("#modal").classList.toggle("modal--wide", wide);
   $("#modal-title").textContent = title; $("#modal-body").innerHTML = bodyHtml; $("#modal-err").textContent = "";
   $("#modal-save").textContent = saveLabel; modalSubmit = onSubmit; $("#modal").showModal();
 }
@@ -304,8 +305,8 @@ function editInvoice(id) {
     `<div id="proj-pick" class="checklist" hidden></div>
      <div class="section-label">Line items</div>
      <div class="items"><div class="item-row item-head"><span>Description</span><span>Qty</span><span>Unit</span><span>Rate</span><span class="amt">Amount</span><span></span></div><div id="item-list">${(inv.items.length ? inv.items : [{}]).map(itemRow).join("")}</div><button type="button" class="link" id="add-item" style="align-self:flex-start">+ Add line</button></div>
-     <div class="totals" id="inv-totals"></div>
-     ${fieldHtml({ k: "notes", l: "Note on invoice", type: "textarea", full: true }, inv.notes)}`;
+     ${fieldHtml({ k: "notes", l: "Note on invoice", type: "textarea", full: true }, inv.notes)}
+     <div class="totals" id="inv-totals"></div>`;
 
   openModal(id ? `Edit invoice ${inv.number}` : "New invoice", body, async () => {
     const data = readForm(fields.concat([{ k: "notes", type: "textarea" }])); requireFields(fields, data);
@@ -326,7 +327,7 @@ function editInvoice(id) {
       });
       if (picked.length) { const batch = writeBatch(db); picked.forEach((pid) => batch.update(doc(db, "projects", pid), { status: "Invoiced", invoiceId: ref.id })); await batch.commit(); }
     }
-  });
+  }, id ? "Save invoice" : "Create invoice", true);
 
   const showProjects = () => {
     const cid = $("#f_clientId").value, box = $("#proj-pick");
