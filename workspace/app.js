@@ -121,7 +121,7 @@ const BUSINESS_FIELDS = [
   { k: "phone", l: "Phone" },
   { k: "pan", l: "PAN" },
   { k: "gstin", l: "GSTIN (if registered)" },
-  { k: "lut", l: "LUT / ARN for export of services (optional)" },
+  { k: "lut", l: "LUT / ARN (exports)" },
   { sec: "Payment details" },
   { k: "bankName", l: "Bank name" },
   { k: "accountName", l: "Account holder name" },
